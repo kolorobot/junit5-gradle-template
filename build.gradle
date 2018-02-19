@@ -1,0 +1,50 @@
+buildscript {
+    ext {
+        junitPlatformVersion = '1.1.0'
+        junitJupiterVersion = '5.1.0'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.junit.platform:junit-platform-gradle-plugin:${junitPlatformVersion}"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.junit.platform.gradle.plugin'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
+    testCompile("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+}
+
+compileTestJava {
+    options.encoding = "UTF-8"
+}
+
+junitPlatform {
+
+    details 'summary'
+
+    filters {
+        tags {
+            if (tagsInclude) {
+                include = tagsInclude.split(',')
+            }
+            if (tagsExclude) {
+                exclude = tagsExclude.split(',')
+            }
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.5'
+}
