@@ -1,7 +1,7 @@
 package pl.codeleak.samples.junit5;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+    import org.junit.jupiter.api.Assertions;
+    import org.junit.jupiter.api.Test;
 
 class JUnit5Tests {
 
