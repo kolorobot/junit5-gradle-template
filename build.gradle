@@ -23,6 +23,8 @@ repositories {
 dependencies {
     testCompile("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
     testCompile("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+    /* Optional dependency for parameterized tests */
+    testCompile("org.junit.jupiter:junit-jupiter-params:${junitJupiterVersion}")
 }
 
 compileTestJava {
