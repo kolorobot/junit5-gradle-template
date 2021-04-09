@@ -7,7 +7,6 @@ class JUnit5Tests {
 
     @Test
     void helloJUnit5() {
-
         Assertions.assertAll(
             () -> Assertions.assertTrue(true),
             () -> Assertions.assertFalse(false),

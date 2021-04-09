@@ -1,28 +1,23 @@
 buildscript {
     ext {
-        junitPlatformVersion = '1.1.0'
-        junitJupiterVersion = '5.1.0'
+        junitJupiterVersion = '5.7.1'
     }
     repositories {
         mavenCentral()
     }
-    dependencies {
-        classpath "org.junit.platform:junit-platform-gradle-plugin:${junitPlatformVersion}"
-    }
 }
 
 apply plugin: 'java'
-apply plugin: 'org.junit.platform.gradle.plugin'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 11
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
-    testCompile("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     /* Optional dependency for parameterized tests */
     testCompile("org.junit.jupiter:junit-jupiter-params:${junitJupiterVersion}")
 }
@@ -31,22 +26,18 @@ compileTestJava {
     options.encoding = "UTF-8"
 }
 
-junitPlatform {
+test {
+    useJUnitPlatform {
 
-    details 'summary'
+        testLogging {
+            events "passed", "skipped", "failed"
+        }
 
-    filters {
-        tags {
-            if (tagsInclude) {
-                include = tagsInclude.split(',')
-            }
-            if (tagsExclude) {
-                exclude = tagsExclude.split(',')
-            }
+        if (tagsInclude) {
+            includeTags = tagsInclude.split(',')
+        }
+        if (tagsExclude) {
+            excludeTags = tagsExclude.split(',')
         }
     }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.5'
 }

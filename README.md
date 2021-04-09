@@ -8,8 +8,8 @@ Basic JUnit 5 Gradle template
     
 ## Run the tests
 
-    gradlew clean test
+    ./gradlew clean test
     
 ## Run tests with tags included / excluded
 
-    gradlew clean test -PtagsInclude=tag1 -PtagsExclude=tag2
+    ./gradlew clean test -PtagsInclude=tag1 -PtagsExclude=tag2
