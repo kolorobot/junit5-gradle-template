@@ -13,3 +13,9 @@ Basic JUnit 5 Gradle template
 ## Run tests with tags included / excluded
 
     ./gradlew clean test -PtagsInclude=tag1 -PtagsExclude=tag2
+
+## Update project dependencies
+
+- Install latest `gradle` version (`asdf install gradle latest`)
+- Run `./gradle wrapper`
+- Run `./gradlew clean test` 
