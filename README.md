@@ -1,6 +1,6 @@
 # JUnit5 Gradle Template
 
-Basic JUnit 5 Gradle template
+> Basic JUnit 5 Gradle template
 
 ## Cloning the repository
 
@@ -16,6 +16,11 @@ Basic JUnit 5 Gradle template
 
 ## Update project dependencies
 
-- Install latest `gradle` version (`asdf install gradle latest`)
-- Run `./gradle wrapper`
+- Install latest `gradle` version (`asdf install gradle <VERSION>`)
+- Run `./gradlew wrapper --gradle-version=<VERSION>`
 - Run `./gradlew clean test` 
+
+## See also
+
+- https://docs.gradle.org/current/userguide/building_java_projects.html
+- https://docs.gradle.org/current/userguide/java_testing.html
